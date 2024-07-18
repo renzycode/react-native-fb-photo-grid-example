@@ -19,6 +19,11 @@ export default App = () => {
         'https://images.pexels.com/photos/27107645/pexels-photo-27107645/free-photo-of-shinjuku-temple-charms.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     ];
 
+    const onTouchPhoto = (photo, index) => {
+        console.log('selected photo: ',photo);
+        console.log('selected index: ',index);
+    }
+
     return (
         <View style={{ flex: 1, justifyContent: 'center', justifyContent: 'center' }}>
             <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 10 }}>
@@ -45,6 +50,8 @@ export default App = () => {
                 photos={photoList.slice(0, imageLength)}
                 sourceType='local'
                 gutter={gutter}
+                gutterColor={"black"}
+                onTouchPhoto={onTouchPhoto}
             />
         </View>
     );

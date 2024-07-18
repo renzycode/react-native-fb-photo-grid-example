@@ -13,7 +13,7 @@ export default FBImgGrid = (props) => {
 	}
 	let num = 0;
 	return (
-		<View style={{ width: '100%', height: props.height, backgroundColor: 'gray' }}>
+		<View style={{ width: '100%', height: props.height, backgroundColor: props.gutterColor }}>
 			{
 				props.photos.length >= 1?
 				<View style={{ padding: props.gutter }}>
@@ -23,8 +23,9 @@ export default FBImgGrid = (props) => {
 							{
 								[...Array(props.photos.length >= 5 ? 2 : 1)].map((_, index) => {
 									num += 1;
+									var photoInnerIndex = (num-1);
 									return (
-										<TouchableOpacity key={index} activeOpacity={0.5} style={{ width: props.photos.length >= 5 ? '50%' : '100%',padding: props.gutter }}>
+										<TouchableOpacity key={index} onPress={()=>{props.onTouchPhoto(props.photos[photoInnerIndex],photoInnerIndex)}} activeOpacity={0.5} style={{ width: props.photos.length >= 5 ? '50%' : '100%',padding: props.gutter }}>
 											<RenderImage photoUri={props.photos[num-1]} containerHeight={props.height} heightDivisor={props.photos.length > 2 ? 2 : 1} sourceType={props.sourceType} gutter={props.gutter * (props.photos.length >= 3 ? 3 : 4)}/>
 										</TouchableOpacity>
 									)
@@ -36,8 +37,9 @@ export default FBImgGrid = (props) => {
 						{
 							[...Array(3)].map((_, index) => {
 								num += 1;
+								var photoInnerIndex = (num-1);
 								return (
-									<TouchableOpacity key={index} activeOpacity={0.5} style={{width: props.photos.length == 1 ? '100%' : props.photos.length <= 3 ? '50%' : '33.33%', padding: props.gutter }}>
+									<TouchableOpacity key={index} onPress={()=>{props.onTouchPhoto(props.photos[photoInnerIndex],photoInnerIndex)}} activeOpacity={0.5} style={{width: props.photos.length == 1 ? '100%' : props.photos.length <= 3 ? '50%' : '33.33%', padding: props.gutter }}>
 										<RenderImage photoUri={props.photos[num-1]} containerHeight={props.height} heightDivisor={props.photos.length > 2 ? 2 : 1} sourceType={props.sourceType} gutter={props.gutter * (props.photos.length >= 3 ? 3 : 4)}/>
 										{
 											num >= 5 && props.photos.length-5 != 0 &&
