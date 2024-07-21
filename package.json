@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "react-native-fb-photo-grid-example",
   "version": "1.0.0",
   "main": "expo/AppEntry.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@renzycode/react-native-fb-photo-grid": "^0.1.5",
     "expo": "~51.0.21",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",

@@ -1,7 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import FBImgGrid from './components/FBImgGrid';
+import { Text, View, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
+import FBPhotoGrid from '@renzycode/react-native-fb-photo-grid';
 
 export default App = () => {
 
@@ -44,15 +43,15 @@ export default App = () => {
                     <Text style={{ fontSize: 20, textAlign: 'center', color: 'white'}}>+</Text>
                 </TouchableOpacity>
             </View>
-            <Text style={{ textAlign: 'center', marginBottom: 10 }}>@renzycode/react-native-fb-img-grid</Text>
-            <FBImgGrid 
+            <Text style={{ textAlign: 'center', marginBottom: 10 }}>@renzycode/react-native-fb-photo-grid</Text>
+            <FBPhotoGrid 
                 height={400}
                 photos={photoList.slice(0, imageLength)}
-                sourceType='local'
-                gutter={gutter}
-                gutterColor={"black"}
+                gutterSize={gutter}
+                gutterColor={"white"}
                 onTouchPhoto={onTouchPhoto}
             />
+            <Text style={{ textAlign: 'center', marginBottom: 10 }}>photos from pexels.com</Text>
         </View>
     );
 }
